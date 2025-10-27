@@ -75,7 +75,11 @@ class MainActivity : AppCompatActivity() {
 
                     sb.append("Interface: ${lp.interfaceName}\n")
 
-                    val addresses = lp.linkAddresses.joinToString { it.address.hostAddress ?: "" }
+                    val addresses = lp.linkAddresses.joinToString("\n") {
+                        val addr = it.address.hostAddress ?: ""
+                        val prefix = it.prefixLength
+                        "$addr/$prefix"
+                    }
                     sb.append("IP Addresses: $addresses\n")
 
                     val gateways = lp.routes.filter { it.isDefaultRoute }
@@ -83,13 +87,14 @@ class MainActivity : AppCompatActivity() {
                     sb.append("Gateway: $gateways\n")
 
                     val dnsServers = lp.dnsServers.joinToString { it.hostAddress ?: "" }
-                    sb.append("DNS: $dnsServers\n\n")
+                    sb.append("DNS:\n${if (dnsServers.isNotEmpty()) dnsServers else "N/A"}\n")
                 }
             }
         }
 
         infoTextView.text = sb.toString()
         infoTextView.setTextIsSelectable(true)
+        infoTextView.requestFocus()
     }
 
     private fun copyToClipboard() {
