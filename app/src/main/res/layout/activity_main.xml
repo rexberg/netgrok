@@ -8,26 +8,23 @@
     android:background="#282a36"
     tools:context=".MainActivity">
 
-    <!-- Scrollable network info area -->
-    <ScrollView
+    <!-- Network info area -->
+    <TextView
+        android:id="@+id/infoTextView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:fillViewport="true">
-
-        <TextView
-            android:id="@+id/infoTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Network information will appear here..."
-            android:textSize="14sp"
-            android:padding="4dp"
-            android:background="@android:color/transparent"
-            android:textColor="#f8f8f2"
-            android:textIsSelectable="true"
-            android:scrollbars="vertical"
-            android:lineSpacingExtra="2dp" />
-    </ScrollView>
+        android:text="Network information will appear here..."
+        android:textSize="14sp"
+        android:padding="4dp"
+        android:textColor="#f8f8f2"
+        android:textIsSelectable="true"
+        android:scrollbars="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:longClickable="true"
+        android:lineSpacingExtra="2dp"
+        android:background="@android:color/transparent" />
 
     <!-- Refresh Button -->
     <Button
@@ -45,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Copy All"
-        android:textColor="#f8f8f2"
+        android:textColor="#282a36"
         android:backgroundTint="#50fa7b"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="4dp" />
