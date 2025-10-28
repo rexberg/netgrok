@@ -88,6 +88,8 @@ class MainActivity : AppCompatActivity() {
 
                     val dnsServers = lp.dnsServers.joinToString { it.hostAddress ?: "" }
                     sb.append("DNS:\n${if (dnsServers.isNotEmpty()) dnsServers else "N/A"}\n")
+
+                    sb.append("\n")
                 }
             }
         }
